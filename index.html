@@ -1,371 +1,59 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Zkar Movie App</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-        integrity="sha384-oWAXd6UilCEk0JnnBqKfPkgpJANrgFlXTlTx6yEz/LO1uLMCl6XN6XJ3B1O0q9tt" crossorigin="anonymous">
-    <link rel="icon" type="image/png" href="app-logo.png" />
-    <style>
-        @font-face {
-            font-family: 'mm';
-            src: url('./mm.tff') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
 
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
 
-        body {
-            font-family: 'mm', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to bottom, #f3f3f3, #e0e0e0);
-        }
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
 
-        .header {
-            background: linear-gradient(to bottom, #0078d7, #005fb3);
-            color: #fff;
-            padding: 10px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1;
-        }
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/">
 
-        .header-title {
-            font-size: 36px;
-            margin: 0;
-        }
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
 
-        .navigation {
-            list-style: none;
-            padding: 0;
-            margin-top: 20px;
-        }
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="zkarsite">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-        .navigation li {
-            display: inline;
-            margin-right: 20px;
-        }
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
 
-        .navigation li:last-child {
-            margin-right: 0;
-        }
+  <title>zkarsite</title>
+  <link rel="manifest" href="manifest.json">
 
-        .navigation a {
-            text-decoration: none;
-            color: #fff;
-            font-size: 18px;
-            transition: color 0.3s;
-        }
-
-        .navigation a:hover {
-            color: #ffea00;
-        }
-
-        body {
-            padding-top: 60px;
-        }
-
-        .app-logo {
-            max-width: 200px;
-            transition: transform 0.3s ease;
-        }
-
-        .app-logo:hover {
-            transform: scale(1.2);
-            animation: bounce 0.5s infinite;
-        }
-
-        @keyframes bounce {
-
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
-                transform: translateY(0);
-            }
-
-            40% {
-                transform: translateY(-10px);
-            }
-
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-
-        .download-info {
-            margin-top: 20px;
-        }
-
-        .download-link {
-            margin: 10px;
-            text-decoration: none;
-            background: #0078d7;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .download-link:hover {
-            background: #005fb3;
-        }
-
-        .pricing {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .plan-card {
-            width: 300px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin: 10px;
-            padding: 20px;
-            background-image: linear-gradient(to bottom, #eee, #fff);
-        }
-
-        .plan-title {
-            font-size: 24px;
-            margin: 0;
-            padding: 10px 0;
-            background: linear-gradient(to bottom, #0078d7, #005fb3);
-            color: #fff;
-            border-radius: 5px;
-            text-align: center;
-        }
-
-        .plan-features {
-            list-style: none;
-            padding: 0;
-            margin: 20px 0;
-            text-align: left;
-        }
-
-        .plan-features li {
-            margin-bottom: 10px;
-        }
-
-        .plan-price {
-            font-size: 20px;
-            color: #0078d7;
-        }
-
-        .plan-price ul {
-            text-align: left;
-        }
-
-        .user-info {
-            margin: 20px 0;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: left;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .user-info p {
-            font-size: 18px;
-            position: relative;
-        }
-
-        .user-ratings {
-            font-size: 20px;
-            position: relative;
-        }
-
-        .user-info p::before,
-        .user-ratings::before {
-            content: "\f007";
-            font-family: FontAwesome;
-            color: gold;
-            margin-right: 5px;
-            opacity: 0;
-            transition: opacity 0.5s;
-        }
-
-        .user-info p:hover::before,
-        .user-ratings:hover::before {
-            opacity: 1;
-        }
-
-        .section {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px;
-            text-align: left;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .section-title {
-            font-size: 32px;
-            color: #0078d7;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .qa-section {
-            background: #f0f0f0;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: left;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .qa-question {
-            font-weight: bold;
-            font-size: 18px;
-            font-family: 'mm', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            cursor: pointer;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        }
-
-        .qa-answer {
-            font-size: 16px;
-            font-family: 'mm';
-            display: none;
-        }
-
-        .qa-answer.active {
-            display: block;
-        }
-
-        .contact-info {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: left;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-info a {
-            text-decoration: none;
-            color: #0078d7;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <script>
+    // The value below is injected by flutter build, do not touch.
+    const serviceWorkerVersion = "661955374";
+  </script>
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="flutter.js" defer></script>
 </head>
-
 <body>
-    <div class="header">
-        <h1 class="header-title">Zkar</h1>
-        <ul class="navigation">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </div>
-
-    <h1 id="home">Welcome to Zkar Movie App</h1>
-    <img class="app-logo" src="app-logo.png" alt="Zkar Movie App Logo">
-
-    <div class="download-info">
-        <h2>Download Zkar</h2>
-        <p>Get Zkar Movie App from the following sources:</p>
-        <a class="download-link" href="https://play.google.com/store/apps/details?id=com.zkr.mm"
-            target="_blank">Download on Play Store</a>
-        <a class="download-link" href="https://www.mediafire.com/file/yck8kerqfq61lwt" target="_blank">Download from
-            Mediafire</a>
-    </div>
-    <br>
-    <div class="download-info">
-        <a class="download-link" href="https://t.me/zkarapp" target="_blank">Direct Download</a>
-    </div>
-
-    <div class="section">
-        <h1 class="section-title">Choose Your Plan</h1>
-        <div class="pricing">
-            <div class="plan-card">
-                <h2 class="plan-title">Free</h2>
-                <ul class="plan-features">
-                    <li>Includes Ads</li>
-                    <li>Can't Watch or Download Premium Movies/Series</li>
-                </ul>
-            </div>
-            <div class="plan-card">
-                <h2 class="plan-title">Premium</h2>
-                <ul class="plan-features">
-                    <li>No Floating Ads</li>
-                    <li>Can Watch or Download All Movies/Series</li>
-                </ul>
-                <div class="plan-price">
-                    <p>Plans</p>
-                    <ul>
-                        <li><a href="https://t.me/zkarpremium" target="_blank">1 Month - 3000 MMK</a></li>
-                        <li><a href="https://t.me/zkarpremium" target="_blank">3 Months - 8000 MMK</a></li>
-                        <li><a href="https://t.me/zkarpremium" target="_blank">5 Months - 12000 MMK</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h1 class="section-title">Frequently Asked Questions</h1>
-        <div class="qa-section">
-            <div class="qa-question" onclick="toggleAnswer(this)">Q: အသုံးပြုနည်း </div>
-            <div class="qa-answer"><br>A: စဖွင့်တဲ့အခါ မြန်မာဇာတ်လမ်းတွေပဲ ပေါ်နေမှာဖြစ်ပါတယ်။
-                နိုင်ငံခြားဇာတ်လမ်းများပေါ်လာအောင် အောက်ဖော်ပြပါအတိုင်းပြုလုပ်ပေးပါ။ <br> - Zkar App ဆက်တင်ထဲကိုဝင်ပါ
-                <br> - About ဆိုတဲ့ ခလုတ်ပေါ်ကို မလွှတ်ပဲ ကြာကြာဖိထားပါ။ <br> - ကကကကက ထည့်ပေးပါ။ <br><br> -
-                သိုင်းကားကြည့်ချင်သူများက Zkar Settings ထဲမှာ လူကြီးကားကြည့်ရန်ကို ဖွင့်ပေးပါ။
-            </div>
-        </div>
-        <div class="qa-section">
-            <div class="qa-question" onclick="toggleAnswer(this)">Q: တိုက်ရိုက်ကြည့်နည်း</div>
-            <div class="qa-answer"><br>A: တိုက်ရိုက် Stream ကြည့်သူများ လိုင်းကောင်းမှသာ အဆင်ပြေပါမယ်။ မြန်မာနိုင်ငံ ISP
-                များက ဆာဗာ တော်တော်များများကို အသုံးပြုခွင့် ပိတ်ထားတာမို့ VPN ခံပေးစေချင်ပါတယ်။ VPN Location ( စင်ကာပူ
-                ၊ ထိုင်း ၊ ကိုရီးယား ၊ တရုတ် ) အစရှိတဲ့ အာရှ ဆာဗာများရွေးချယ်ချိတ်ဆက်ပါ။ ( 1.1.1.1 နှင့် Psiphon ကဲ့သို့
-                Free VPN များ အဆင်မပြေပါ )</div>
-        </div>
-        <div class="qa-section">
-            <div class="qa-question" onclick="toggleAnswer(this)">Q: ဒေါင်းလုပ်ဆွဲနည်း</div>
-            <div class="qa-answer"><br>A: ဒေါင်းလုပ်ဆွဲဖို့ ADM ကိုထည့်ထားပါ။ China ဖုန်းတွေ ‌ဒေါင်းလုပ်ဆွဲဖို့
-                အဆင်မပြေဖြစ်ရင် <a href="https://t.me/zkarapp"  target="_blank">Telegram Video Tutorial</a> မှာသွားပြီး
-                ကြည့်ရှုနိုင်ပါတယ်။ </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h1 class="section-title">Contact Us</h1>
-        <p>If you have any questions or need assistance, feel free to reach out to us through the following channels:
-        </p>
-        <ul class="contact-info">
-            <li>
-                <a href="https://t.me/zkarapp" target="_blank" ontap="_blank">
-                    <i class="fab fa-telegram"></i> Telegram
-                </a>
-            </li>
-            <li>
-                <a href="https://www.m.me/mmxdarkside" target="_blank" ontap="_blank">
-                    <i class="fab fa-facebook-messenger"></i> Messenger
-                </a>
-            </li>
-            <li>
-                <a href="mailto:ninjacoder.mm@gmail.com">
-                    <i class="far fa-envelope"></i> Email
-                </a>
-            </li>
-        </ul>
-    </div>
-
-    <script>
-        function toggleAnswer(question) {
-            const answer = question.nextElementSibling;
-            answer.classList.toggle('active');
+  <script>
+    window.addEventListener('load', function(ev) {
+      // Download main.dart.js
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        },
+        onEntrypointLoaded: function(engineInitializer) {
+          engineInitializer.initializeEngine().then(function(appRunner) {
+            appRunner.runApp();
+          });
         }
-    </script>
+      });
+    });
+  </script>
 </body>
-
 </html>
