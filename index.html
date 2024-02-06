@@ -95,7 +95,7 @@
             }
 
             .logo {
-                width: 150px;
+                width: 100px;
                 height: auto;
                 margin: auto;
                 box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.25);
@@ -121,6 +121,7 @@
 
             .plan-description {
                 font-family: 'mm', sans-serif;
+                margin: 0 15px 10px 15px;
             }
 
             .card-header h4 {
@@ -129,6 +130,44 @@
 
             .plan-description li:before {
                 content: "• ";
+            }
+
+            /* this is row  */
+
+            .row {
+                display: flex;
+                align-items: center;
+                /* justify-content: space-between; */
+                padding: 0px;
+                /* border: 1px solid #ddd; */
+            }
+
+            .row img {
+                width: 100px;
+                height: 100px;
+            }
+
+            /* .row button {
+                padding: 10px 0px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                cursor: pointer;
+            } */
+
+            .row button:hover {
+                background-color: #45a049;
+            }
+
+            .itwo {
+                box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.25);
+                border-radius: 25%;
+                margin: 10px 0px 0 60px;
+            }
+
+            .column {
+                flex: 0%;
+                padding: 0px;
             }
         }
     </style>
@@ -259,20 +298,19 @@
             </div>
         </div>
     </div>
-    
+
     <div class="mob">
-        <!-- App Logo -->
-        <div class="text-center my-3">
-            <img src="app-icon.png" alt="App Logo" class="img-fluid logo">
+
+        <div class="row">
+            <div class="text-center my-3">
+                <img src="app-icon.png" alt="App Logo" class="itwo">
+            </div>
+            <div class="column">
+                <h1 class="" style="margin: 0 0 0 20px;">Zkar</h1>
+                <p class="" style="margin: 0 0 0 20px;">100K+ Users | Rating: 4.5</p>
+            </div>
         </div>
 
-        <!-- App Name -->
-        <h1 class="text-center ">Zkar</h1>
-
-        <!-- App User Count and Rating -->
-        <p class="text-center">100K+ Users | Rating: 4.5</p>
-
-        <!-- App Download Buttons -->
         <div class="text-center my-3">
             <a href="#" class="btn btn-primary"
                 onclick="openNewTab('https://www.mediafire.com/file/u5wk0xu9g47cmi9')">Direct Download</a>
@@ -280,6 +318,8 @@
                 onclick="openNewTab('https://play.google.com/store/apps/details?id=com.zkr.mm')">Download from
                 Playstore</a>
         </div>
+
+
 
         <!-- App Description -->
         <p class="plan-description"> မြန်မာစာတန်းထိုး ဇာတ်လမ်းများ ၊ ဇာတ်လမ်းတွဲများနှင့် ၁၈+
@@ -379,6 +419,11 @@
             <button class="btn btn-info" onclick="openNewTab('https://t.me/zkarapp')">Follow Us</button>
             <button class="btn btn-info" onclick="openNewTab('https://bit.ly/zkarapp')">Rate Us</button>
         </div>
+
+        <button type="button" class="btn btn-lg btn-block btn-primary" onclick="openNewTab('https://t.me/zkarapp')"
+            style="font-family: 'mm'; color: white; background-color: rgb(109, 32, 171);""> App
+            အသုံးပြုနည်း </button>
+            
     </div>
 
     <script>
@@ -387,8 +432,8 @@
         }
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src=" https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 
 </html>
