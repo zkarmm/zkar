@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Zkar App Download Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mirza&display=swap" rel="stylesheet">
+    <!-- Import the Mirza font -->
+    <style>
+        @font-face {
+            font-family: 'YourFont';
+            src: url('assets/font.ttf') format('truetype');
+        }
+
+        body {
+            font-family: 'YourFont', sans-serif;
+        }
+
+        .app-icon {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.25);
+            border-radius: 25%;
+            /* Adjust this value to change the roundness of the corners */
+        }
+
+        .screenshot {
+            width: 300px;
+            height: auto;
+            margin: 10px;
+        }
+
+        .pricing {
+            margin-top: 20px;
+        }
+
+        .app-name {
+            text-shadow: 2px 2px #aaa;
+        }
+
+        .rating-users {
+            font-family: 'Mirza', cursive;
+            /* Use the Mirza font for the rating and users text */
+        }
+
+        .plan-description {
+            font-family: 'YourFont', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img class="app-icon img-fluid mb-3" src="app-icon.png" alt="Zkar App Icon">
+            </div>
+            <div class="col-md-8">
+                <h1 class="display-4 app-name"><strong>Zkar - Movies & TV Shows</strong></h1>
+                <p class="lead rating-users">Best movie app with over 1M+ users and a rating of 4.5/5</p>
+                <!-- Apply the Mirza font here -->
+                <button class="btn btn-success btn-lg btn-block mb-3"
+                    onclick="alert('The app is now downloading. Please wait...')">Direct Download</button>
+                <button class="btn btn-primary btn-lg btn-block mb-3"
+                    onclick="window.location.href='https://play.google.com/store/apps/details?id=com.example.app'">Download
+                    from Play Store</button>
+                <p class="plan-description">Zkar is the best movie app available. With our app, you can watch your
+                    favorite movies anytime, anywhere. Download now and start watching!</p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <img class="screenshot" src="screenshot1.jpg" alt="Zkar App Screenshot 1">
+            <img class="screenshot" src="screenshot2.jpg" alt="Zkar App Screenshot 2">
+            <!-- Add more screenshots as needed -->
+        </div>
+        <div class="row pricing">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal plan-description">Free</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
+                        <ul class="list-unstyled mt-3 mb-4 plan-description">
+                            <li>Access to free content</li>
+                            <li>Basic features</li>
+                        </ul>
+                        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal plan-description">Pro</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">$15 <small class="text-muted">/ mo</small></h1>
+                        <ul class="list-unstyled mt-3 mb-4 plan-description">
+                            <li>Access to premium content</li>
+                            <li>Advanced features</li>
+                        </ul>
+                        <button type="button" class="btn btn-lg btn-block btn-primary">Get started</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
